@@ -1,0 +1,2 @@
+export const toMonthAndYear = date => new Date( date ).toLocaleDateString( [], { month: 'short', year: 'numeric' } );
+export const toYear = date => new Date( date ).toLocaleDateString( [], { year: 'numeric' } );
