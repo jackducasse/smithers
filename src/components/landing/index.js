@@ -13,6 +13,7 @@ export const Landing = ( {
     const [ isLoading, setIsLoading ] = useState( false );
     const [ items, setItems ] = useState( [] );
     const [ searchType, setSearchType ] = useState( 'movies' );
+    const [ searchQuery, setSearchQuery ] = useState( '' );
 
     useEffect( () => {
         setIsLoading( true );
@@ -22,6 +23,11 @@ export const Landing = ( {
         } );
     }, [ searchType ] );
 
+    const filteredItems = _.filter( 
+        items, 
+        item => _.toLower( item.title ).match( _.toLower( searchQuery ) ),
+    );
+
     if ( isLoading ) return <div>Loading..</div>
     return (
         <div className={classNames( 'landing', styles.container )}>
@@ -30,9 +36,9 @@ export const Landing = ( {
             </div>
             <div className="wrapper">
                 <div className="container">
-                    <Searchbar />
+                    <Searchbar onChange={setSearchQuery} value={searchQuery} />
                     <h4>Popular {_.capitalize( searchType )}</h4>
-                    <List items={items} />
+                    <List items={filteredItems} />
                 </div>
             </div>
         </div>

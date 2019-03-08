@@ -1,0 +1,35 @@
+@import '../../globals.less';
+
+:local(.container){
+    position: relative;
+    color: @high;
+    max-width: @mobile;
+    margin: auto;
+
+    input{
+        height: 3rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        color: @high;
+        border-radius: 2rem;
+        font-weight: 500;
+        background: #fff;
+        border: none;
+    
+        &:focus, &:hover{
+            outline: none;
+        }
+        &::placeholder{
+            color: @high;
+        }
+    }
+
+    .search{
+        position: absolute;
+        height: 24px;
+        top: 0;
+        bottom: 0;
+        right: 1rem;
+        margin: auto;
+    }
+}

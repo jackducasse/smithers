@@ -1,12 +1,20 @@
 @import './globals.less';
 
+@fallbacks: Tahoma, Geneva, Verdana, sans-serif;
+@roboto: 'Roboto', @fallbacks;
+@montserrat: 'Montserrat', @fallbacks;
+
 *{ box-sizing: border-box; }
 
 html, body{
     font-size: 14px;
     color: @textColor;
-    font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: @roboto;
     background: @backgroundColor;
+}
+
+input{
+    font-family: @roboto;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -14,7 +22,7 @@ h1,h2,h3,h4,h5,h6{
 }
 h1,h2,h3,h4,h5{
     font-weight: 600;
-    font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: @montserrat;
 }
 
 h1{
