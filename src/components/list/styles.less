@@ -1,19 +1,59 @@
+@import '../../globals.less';
+
 :local(.container){
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0.5rem -0.5rem;
+    margin: 0.5rem -1rem;
+    .list-item{
+        width: ~"calc(50% - 2rem)";
+    }
 }
 
 :local(.item){
+    position: relative;
     text-decoration: none;
     color: inherit;
-    width: 11rem;
-    margin: 1rem 0.5rem;
-    overflow: hidden;
+    margin: 1rem;
 
+    .rating{
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+    }
     .title{
         margin-top: 1rem;
         margin-bottom: 0.5rem;
+    }
+}
+
+@media all and (min-width: @mobile) { 
+    :local(.container){
+        .list-item{
+            width: ~"calc(33.33% - 2rem)";
+        }
+    }
+}
+
+@media all and (min-width: @phablet) { 
+    :local(.container){
+        .list-item{
+            width: ~"calc(25% - 2rem)";
+        }
+    }
+}
+
+@media all and (min-width: @tablet) { 
+    :local(.container){
+        .list-item{
+            width: ~"calc(20% - 2rem)";
+        }
+    }
+}
+
+@media all and (min-width: @laptopS) { 
+    :local(.container){
+        .list-item{
+            width: ~"calc(16.66% - 2rem)";
+        }
     }
 }

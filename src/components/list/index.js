@@ -11,14 +11,14 @@ export const List = ( {
         {_.map( items, ( {
             id,
             poster_path,
-            rating,
             title,
             release_date,
+            vote_average,
         } ) => (
             <ListItem
                 id={id}
                 thumbnailUrl={poster_path}
-                rating={rating}
+                rating={vote_average}
                 title={title}
                 releaseDate={release_date}
             />

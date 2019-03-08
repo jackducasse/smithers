@@ -1,0 +1,14 @@
+@import '../../globals.less';
+
+:local(.container){
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    &.high{ background: @high; }
+    &.medium{ background: @medium; }
+    &.low{ background: @low; }
+}

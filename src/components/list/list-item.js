@@ -15,10 +15,9 @@ export const ListItem = ( {
     releaseDate,
 } ) => (
     <Link className={classNames( 'list-item', styles.item )} to={ROUTES.VIEW_ITEM( id )}>
-        <Poster url={thumbnailUrl}>
-            <Rating rating={rating} />
-        </Poster>
+        <Rating rating={rating} />
+        <Poster url={thumbnailUrl} />
         <h6 className="title">{title}</h6>
-        <div className="release-date">{toMonthAndYear( releaseDate )}</div>
+        <div className="subtext release-date">{toMonthAndYear( releaseDate )}</div>
     </Link>
 );

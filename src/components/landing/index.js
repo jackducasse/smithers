@@ -5,6 +5,7 @@ import { Searchbar } from '../searchbar';
 import { List } from '../list';
 import styles from './styles.less';
 import { getMovies, getMovieById } from '../../services';
+import { TMDB_LOGO } from '../../constants';
 
 export const Landing = ( {
 
@@ -25,12 +26,14 @@ export const Landing = ( {
     return (
         <div className={classNames( 'landing', styles.container )}>
             <div className="header">
-            
+                <img alt="TMDB" src={TMDB_LOGO} height="50" width="50" />
             </div>
-            <div className="container">
-                <Searchbar />
-                <h4>Popular {_.capitalize( searchType )}</h4>
-                <List items={items} />
+            <div className="wrapper">
+                <div className="container">
+                    <Searchbar />
+                    <h4>Popular {_.capitalize( searchType )}</h4>
+                    <List items={items} />
+                </div>
             </div>
         </div>
     );

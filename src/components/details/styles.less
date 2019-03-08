@@ -1,0 +1,38 @@
+@import '../../globals.less';
+
+:local(.container){
+    a{
+        .back{
+            color: @headingColor;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+    }
+    .summary{
+        display: flex;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+
+        .poster-wrapper{
+            width: 8rem;
+            margin-top: -4rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .summary-details{
+            .title{
+                margin-bottom: 1.5rem;
+            }
+            .subtext{
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+    .overview{
+        margin-top: 1rem;
+        .description{
+            margin: 1rem 0;
+        }
+    }
+}

@@ -3,6 +3,7 @@
 *{ box-sizing: border-box; }
 
 html, body{
+    font-size: 14px;
     color: @textColor;
     font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
     background: @backgroundColor;
@@ -30,4 +31,21 @@ h4{
 }
 h5{
     font-size: 1.2rem;
+}
+
+p{
+    line-height: 1.5;
+}
+
+.subtext{
+    font-size: 0.8rem;
+}
+
+.wrapper{
+    margin: 0 1rem;
+    .container{
+        position: relative;
+        max-width: @laptopS;
+        margin: auto;
+    }
 }
