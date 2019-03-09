@@ -6,11 +6,14 @@ import { List } from '../list';
 import styles from './styles.less';
 import { getMovies, getMovieById } from '../../services';
 import { TMDB_LOGO } from '../../constants';
+import { Loader } from '../loader';
+import { ErrorMessage } from '../error-message';
 
 export const Landing = ( {
 
 } ) => {
     const [ isLoading, setIsLoading ] = useState( false );
+    const [ error, setError ] = useState( null );
     const [ items, setItems ] = useState( [] );
     const [ searchType, setSearchType ] = useState( 'movies' );
     const [ searchQuery, setSearchQuery ] = useState( '' );
@@ -20,7 +23,7 @@ export const Landing = ( {
         getMovies().then( items => {
             setItems( items );
             setIsLoading( false );
-        } );
+        }, err => setError( err ) );
     }, [ searchType ] );
 
     const filteredItems = _.filter( 
@@ -28,7 +31,8 @@ export const Landing = ( {
         item => _.toLower( item.title ).match( _.toLower( searchQuery ) ),
     );
 
-    if ( isLoading ) return <div>Loading..</div>
+    if ( error ) return <ErrorMessage>{error.message}</ErrorMessage>;
+    if ( isLoading || !items.length ) return <Loader />;
     return (
         <div className={classNames( 'landing', styles.container )}>
             <div className="header">

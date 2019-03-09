@@ -1,4 +1,11 @@
+import request from 'superagent';
 
-export const getMovieById = id => fetch( `/api/movies/${id}` ).then( res => res.json() );
-export const getMovies = () => fetch( '/api/movies' ).then( res => res.json() );
-export const getShows = () => fetch( '/api/shows' ).then( res => res.json() );
+const onSuccess = res => res.body;
+const onError = err => { throw err };
+
+export const getMovieById = id => request( `/api/movies/${id}` )
+    .then( onSuccess, onError );
+export const getMovies = () => request( '/api/movies' )
+    .then( onSuccess, onError );
+export const getShows = () => request( '/api/shows' )
+    .then( onSuccess, onError );

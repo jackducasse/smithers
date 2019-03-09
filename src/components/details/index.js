@@ -7,11 +7,14 @@ import {  getMovieById } from '../../services';
 import { Banner } from '../banner';
 import { Poster } from '../poster';
 import { toYear, minsToHours, ratingToPercent } from '../../utils';
+import { Loader } from '../loader';
+import { ErrorMessage } from '../error-message';
 
 export const Details = ( {
     id,
 } ) => {
     const [ isLoading, setIsLoading ] = useState( false );
+    const [ error, setError ] = useState( null );
     const [ item, setItem ] = useState( {} );
 
     useEffect( () => {
@@ -19,7 +22,7 @@ export const Details = ( {
         getMovieById( id ).then( item => {
             setItem( item );
             setIsLoading( false );
-        } );
+        }, err => setError( err ) );
     }, [ id ] );
 
     const {
@@ -32,7 +35,8 @@ export const Details = ( {
         vote_average,
     } = item;
 
-    if ( isLoading || _.isEmpty( item ) ) return <div>Loading..</div>
+    if ( error ) return <ErrorMessage>{error.message}</ErrorMessage>;
+    if ( isLoading || _.isEmpty( item ) ) return <Loader />;
     return (
         <div className={classNames( 'details', styles.container )}>
             <Link to="/">
