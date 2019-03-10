@@ -8,6 +8,34 @@
         justify-content: center;
         align-items: center;
         min-height: 10rem;
+
+        .logo{
+            position: relative;
+            &:before{
+                content: '';
+                position: absolute;
+                left: 0; right: 0;
+                top: 0; bottom: 0;
+                margin: auto;
+                height: 1px;
+                width: 1px;
+                box-shadow: 0 0 15rem 3rem rgba(255,255,255,0.5);
+            }
+            img{
+                z-index: 10;
+            }
+        }
+
+        .background{
+            position: absolute;
+            left: -3rem;
+            top: -2rem;
+
+            &.right{
+                left: auto;
+                right: 1rem;
+            }
+        }
     }
     .searchbar{
         margin-bottom: 2.5rem;

@@ -8,6 +8,7 @@ import { getMovies, getMovieById } from '../../services';
 import { TMDB_LOGO } from '../../constants';
 import { Loader } from '../loader';
 import { ErrorMessage } from '../error-message';
+import { Background } from '../background';
 
 export const Landing = ( {
 
@@ -36,7 +37,11 @@ export const Landing = ( {
     return (
         <div className={classNames( 'landing', styles.container )}>
             <div className="header">
-                <img alt="TMDB" src={TMDB_LOGO} height="50" width="50" />
+                <Background />
+                <div className="logo">
+                    <img alt="TMDB" src={TMDB_LOGO} height="50" width="50" />
+                </div>
+                <Background className="right" />
             </div>
             <div className="wrapper">
                 <div className="container">

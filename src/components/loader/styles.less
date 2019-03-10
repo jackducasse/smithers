@@ -1,3 +1,5 @@
+@import '../../globals.less';
+
 :local(.container){
     @keyframes spin {
         from {stroke-dashoffset: 251;}
@@ -10,6 +12,8 @@
     left: 0;
     right: 0;
     margin: auto;
+
+    stroke: @high;
     
     animation-name: spin;
     animation-duration: 2s;
