@@ -1,5 +1,11 @@
 export const ROUTES = {
-    VIEW_ITEM: ( id = ':id' ) => `/view/${id}`,
+    POPULAR: ( type = ':type' ) => `/${type}`,
+    VIEW_ITEM: ( type = ':type', id = ':id' ) => `/${type}/${id}`,
+};
+
+export const MEDIA_TYPES = {
+    MOVIES: 'movies',
+    SHOWS: 'shows',
 };
 
 export const IMAGES_BASE = 'https://image.tmdb.org/t/p';

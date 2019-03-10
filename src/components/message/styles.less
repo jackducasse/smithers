@@ -1,0 +1,16 @@
+@import '../../globals.less';
+
+:local(.container){
+    position: relative;
+    margin: 1rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    color: @medium;
+    background: mix( @medium, #fff, 33% );
+    border: 2px solid @medium;
+    &.error{
+        color: @low;
+        background: mix( @low, #fff, 33% );
+        border: 2px solid @low;
+    }
+}

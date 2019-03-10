@@ -37,7 +37,53 @@
             }
         }
     }
+    .wrapper{
+        .container{
+            min-height: ~"calc(100% - 10rem)";
+        }
+    }
     .searchbar{
         margin-bottom: 2.5rem;
+    }
+    .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .types{
+            a{
+                margin-left: 1rem;
+                i{
+                    color: @headingColor;
+                    border-radius: 2rem;
+                    background: @backgroundColor;
+                    padding: 0.5rem;
+                    &.active{
+                        color: @high;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (min-width: @laptopS){
+    :local(.container){
+        .header{
+            overflow: hidden;
+
+            .background{
+                width: 25vw;
+                height: 25vw;
+
+                left: -9vw;
+                top: -6vw;
+
+                &.right{
+                    left: auto;
+                    right: 0;
+                }
+            }
+        }
     }
 }

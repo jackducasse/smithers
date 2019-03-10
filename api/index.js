@@ -23,6 +23,12 @@ app.get( '/movies/:id', function( req, res ){
             .then( response => res.json( response.body.results ) )
             .catch( handleError( res ) );
     } )
+    .get( '/shows/:id', function( req, res ){
+        const { id } = req.params;
+        request( `${moviedbUrl}/tv/${id}?api_key=${apiKey}` )
+            .then( response => res.json( response.body ) )
+            .catch( handleError( res ) );
+    } )
     .get( '/shows', function( req, res ){
         request( `${moviedbUrl}/discover/tv?sort_by=popularity.desc&api_key=${apiKey}` )
             .then( response => res.json( response.body.results ) )

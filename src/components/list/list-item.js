@@ -8,16 +8,17 @@ import { toMonthAndYear } from '../../utils';
 import { ROUTES } from '../../constants';
 
 export const ListItem = ( {
+    type,
     id,
     thumbnailUrl,
     rating,
     title,
     releaseDate,
 } ) => (
-    <Link className={classNames( 'list-item', styles.item )} to={ROUTES.VIEW_ITEM( id )}>
+    <Link className={classNames( 'list-item', styles.item )} to={ROUTES.VIEW_ITEM( type, id )}>
         <Rating rating={rating} />
         <Poster url={thumbnailUrl} />
         <h6 className="title">{title}</h6>
-        <div className="subtext release-date">{toMonthAndYear( releaseDate )}</div>
+        <div className="subtext release-date">{!!releaseDate && toMonthAndYear( releaseDate )}</div>
     </Link>
 );
