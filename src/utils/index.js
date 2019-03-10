@@ -4,8 +4,9 @@ export const toMonthAndYear = date => new Date( date ).toLocaleDateString( [], {
 export const toYear = date => new Date( date ).toLocaleDateString( [], { year: 'numeric' } );
 
 export const minsToHours = mins => {
-    const hours = mins > 60 ? `${Math.round( mins / 60 )}h ` : '';
-    return `${hours}${mins % 60}m`;
+    const hours = mins >= 60 ? `${Math.round( mins / 60 )}h ` : '';
+    const _mins = ( mins % 60 ) ? `${mins % 60}m` : '';
+    return `${hours}${_mins}`;
 };
 
 export const ratingToGroup = rating => {
